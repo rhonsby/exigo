@@ -1,4 +1,6 @@
 Trellino.Collections.Lists = Backbone.Collection.extend({
+  model: Trellino.Models.List,
+
   url: "api/lists",
 
   initialize: function (options) {

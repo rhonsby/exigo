@@ -1,7 +1,7 @@
 <h1><%= board.escape('title') %></h1>
 
-<ul>
-  <% board.lists().sort().each(function (list) { %>
+<ul id="board-list">
+  <% board.lists().each(function (list) { %>
     <li>
       <%= list.escape('title') %>
       <ul>
