@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create!([
-  { email: "rhonsby", password: "foobar" }
+  { email: "rhonsby", password: "foobar" },
+  { email: "lizzie", password: "foobar" }
 ])
 
 boards = Board.create!([
@@ -26,9 +27,9 @@ lists = List.create!([
   { board_id: 1, rank: 2, title: "Doing" }, #2
   { board_id: 1, rank: 3, title: "Done" }, #3
   #Work: board 2
-  { board_id: 2, rank: 1, title: "Urgent" }, #4
-  { board_id: 2, rank: 2, title: "Important" }, #5
-  { board_id: 2, rank: 3, title: "Optional" } #6
+  { board_id: 2, rank: 2, title: "Urgent" }, #4
+  { board_id: 2, rank: 3, title: "Important" }, #5
+  { board_id: 2, rank: 1, title: "Optional" } #6
 ])
 
 cards = Card.create!([

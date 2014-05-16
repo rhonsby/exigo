@@ -26,14 +26,14 @@ Trellino.Routers.BoardsRouter = Backbone.Router.extend({
 
   // only works when directly going there, not from index
   show: function (id) {
-    var board = this.boards.getOrFetch(id);
-    var that = this;
+    var board = new Trellino.Models.Board({id: id});
+    board.fetch();
 
     var showView = new Trellino.Views.BoardsShowView({
       model: board
     });
 
-    that._swapView(showView);
+    this._swapView(showView);
   },
 
   _swapView: function (view) {

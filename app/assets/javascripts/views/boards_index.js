@@ -6,8 +6,6 @@ Trellino.Views.BoardsIndexView = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
-
     var renderedContent = this.template({
       boards: this.collection
     });
