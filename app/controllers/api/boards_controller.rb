@@ -27,6 +27,7 @@ module Api
         new_member = User.find_by_email(email)
         if new_member && !@board.members.include?(new_member)
           @board.members << new_member
+          render json: "User has been added"
         else
           render json: "Invalid Email", status: 422
         end

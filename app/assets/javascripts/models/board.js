@@ -3,7 +3,15 @@ Trellino.Models.Board = Backbone.Model.extend({
 
   parse: function (resp) {
     if (resp.lists) {
-      this.lists().set(resp.lists, { parse: true });
+      var lists = resp.lists;
+      var that = this;
+
+      _(lists).each(function (listData) {
+        var list = new Trellino.Models.List(listData);
+        that.lists().add(list);
+        list.parseCards();
+      });
+
       delete resp.lists;
     }
 
