@@ -9,8 +9,12 @@ Trellino.Views.AddMemberView = Backbone.View.extend({
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     this.model.save(formData, {
-      success: function () { alert('success'); },
-      error: function () { alert('error'); }
+      success: function (model, resp) {
+        alert('User has been added');
+      },
+      error: function (model, resp) {
+        alert(resp.responseText);
+      }
     });
   },
 

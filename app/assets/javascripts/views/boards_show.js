@@ -5,6 +5,16 @@ Trellino.Views.BoardsShowView = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  events: {
+    "click #delete-button": "handleBoardDeletion"
+  },
+
+  handleBoardDeletion: function (event) {
+    event.preventDefault();
+    this.model.destroy();
+    Backbone.history.navigate('', {trigger: true});
+  },
+
   render: function () {
     var renderedContent = this.template({
       board: this.model

@@ -25,10 +25,12 @@ module Api
       if params[:newMemberEmail]
         email = params[:newMemberEmail]
         new_member = User.find_by_email(email)
-        new_member && !@board.members.include?(new_member) && @board.members << new_member
-      end
-
-      if @board.update_attributes(board_params)
+        if new_member && !@board.members.include?(new_member)
+          @board.members << new_member
+        else
+          render json: "Invalid Email", status: 422
+        end
+      elsif @board.update_attributes(board_params)
         render partial: "api/boards/board", locals: { board: @board }
       else
         render json: { errors: @board.errors.full_messages }, status: 422
