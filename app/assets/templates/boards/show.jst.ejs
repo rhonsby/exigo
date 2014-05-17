@@ -1,16 +1,25 @@
 <h1><%= board.escape('title') %></h1>
 
-<ul id="board-list">
-  <% board.lists().each(function (list) { %>
-    <li>
-      <%= list.escape('title') %>
-      <ul>
-        <% list.cards().each(function (card) { %>
-          <li><%= card.escape('title') %></li>
-        <% }) %>
-      </ul>
-    </li>
-  <% }); %>
-</ul>
+<div class="row">
 
-<button class="btn btn-danger" id="delete-button">Delete Board</button>
+  <div class="col-md-12">
+    <div id="board-list">
+      <% board.lists().each(function (list) { %>
+        <div class='list'>
+          <p class="list-title"><%= list.escape('title') %></p>
+            <% list.cards().each(function (card) { %>
+                <div class='card'>
+                  <%= card.escape('title') %>
+                </div>
+            <% }) %>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6" id="board-controls">
+    <button class="btn btn-danger" id="delete-button">Delete Board</button>
+  </div>
+</div>

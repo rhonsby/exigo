@@ -8,6 +8,7 @@ Trellino.Models.Board = Backbone.Model.extend({
 
       _(lists).each(function (listData) {
         var list = new Trellino.Models.List(listData);
+
         that.lists().add(list);
         list.parseCards();
       });

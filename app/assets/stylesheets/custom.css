@@ -1,0 +1,29 @@
+.list {
+  width: 100px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 10px 10px;
+  float: left;
+  text-align: center;
+}
+
+.clearfix:after {
+  content: ' ';
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+
+.card {
+  width: 95%;
+  border: 1px solid black;
+  margin: 2px auto;
+}
+
+.list-title {
+  font-size: 1.2em;
+}
+
+#delete-button {
+  display: block;
+}
