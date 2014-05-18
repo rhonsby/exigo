@@ -5,7 +5,7 @@
 #my-boards > li a {
   width: 300px;
   height: 100px;
-  background-color: steelblue;
+  background-color: #23719F;
   float: left;
   margin: 8px;
   padding: 10px;
@@ -16,7 +16,7 @@
 }
 
 #my-boards > li a:hover {
-  background-color: #315B7E;
+  background-color: #1E628A;
 }
 
 .list {

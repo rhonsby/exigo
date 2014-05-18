@@ -1,4 +1,4 @@
-Trellino.Views.BoardsShowView = Backbone.View.extend({
+Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
   template: JST['boards/show'],
 
   initialize: function () {
@@ -20,6 +20,7 @@ Trellino.Views.BoardsShowView = Backbone.View.extend({
     Backbone.history.navigate('', {trigger: true});
   },
 
+  // refactor show render to integrate compositeviews
   render: function () {
     var renderedContent = this.template({
       board: this.model
