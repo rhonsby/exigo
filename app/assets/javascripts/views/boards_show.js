@@ -3,15 +3,43 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.lists(), 'add sync', this.render);
+    this.listenTo(this.model.lists(), 'sync', this.render);
+    this.listenTo(this.model.lists(), 'add', this.addList);
+    this.listenTo(this.model.lists(), 'remove', this.removeList);
 
-    $(document).on('click', '.card', function () {
-      alert('hi');
+    var newListView = new Trellino.Views.NewListsView({
+      board: this.model
     });
+    this.addSubview("#board-controls", newListView);
+
+    var addMemberView = new Trellino.Views.AddMemberView({
+      model: this.model
+    });
+    this.addSubview("#board-controls", addMemberView);
+
+    this.model.lists().each(this.addList.bind(this));
   },
 
   events: {
-    "click #delete-button": "handleBoardDeletion"
+    "click #delete-button": "handleBoardDeletion",
+  },
+
+  addList: function (list) {
+    var listShow = new Trellino.Views.ListShowView({
+      model: list
+    });
+    this.addSubview('#lists', listShow);
+  },
+
+  removeList: function (list) {
+    var subview = _.find(
+      this.subviews("#lists"),
+      function (subview) {
+        return subview.model === list;
+      }
+    );
+
+    this.removeSubview("#lists", subview);
   },
 
   handleBoardDeletion: function (event) {
@@ -26,15 +54,8 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
       board: this.model
     });
 
-    var newListView = new Trellino.Views.NewListsView({
-      board: this.model
-    });
-
-    var addMemberView = new Trellino.Views.AddMemberView({ model: this.model });
-
     this.$el.html(renderedContent);
-    this.$('#board-controls').prepend(addMemberView.render().$el);
-    this.$('#board-controls').prepend(newListView.render().$el);
+    this.attachSubviews();
 
     return this;
   }

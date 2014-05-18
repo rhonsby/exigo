@@ -48,3 +48,11 @@
 #delete-button {
   display: block;
 }
+
+.hidden {
+  display: none;
+}
+
+.list-delete-btn {
+  cursor: click;
+}
