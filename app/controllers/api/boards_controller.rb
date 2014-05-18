@@ -1,7 +1,9 @@
 module Api
   class BoardsController < ApiController
+    before_action :require_login!
+
     def index
-      @boards = Board.includes(:lists, :cards).all
+      @boards = current_user.boards.includes(:lists, :cards)
       render :index
     end
 
