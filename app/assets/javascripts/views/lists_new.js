@@ -11,12 +11,12 @@ Trellino.Views.NewListsView = Backbone.View.extend({
 
   handleSubmit: function (event) {
     event.preventDefault();
+
     var formData = $(event.currentTarget).serializeJSON().list;
     var list = new Trellino.Models.List(formData);
     list.board = this.board;
-    var view = this;
 
-    debugger
+    var view = this;
     list.save({ rank: this.board.lists().length + 1 }, {
       success: function () {
         view.board.lists().add(list);

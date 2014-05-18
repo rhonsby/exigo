@@ -5,10 +5,6 @@ Trellino.Views.BoardsNewView = Backbone.View.extend({
     'submit #new-board-form': 'handleSubmit'
   },
 
-  initialize: function (options) {
-    this.board = options.board;
-  },
-
   handleSubmit: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON().board;
@@ -17,7 +13,7 @@ Trellino.Views.BoardsNewView = Backbone.View.extend({
     board.save({}, {
       success: function (resp) {
         Trellino.Collections.boards.add(board);
-        Backbone.history.navigate('#/boards/' + board.id, {trigger: true});
+        Backbone.history.navigate('#/boards/' + board.id, { trigger: true });
         this.$('input').val('');
       }
     });
