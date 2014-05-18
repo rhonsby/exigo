@@ -18,7 +18,11 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
 
   handleListDeletion: function (event) {
     event.preventDefault();
-    this.model.destroy();
+    var view = this;
+
+    this.model.destroy({
+      url: "api/lists/" + view.model.get('id')
+    });
   },
 
   render: function () {
