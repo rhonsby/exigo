@@ -1,10 +1,13 @@
-<h1>New Board</h1>
+<div class="row">
+  <h1>New Board</h1>
+  <div class="col-md-6">
+    <form id='new-board-form' role="form">
+      <div class="form-group">
+        <label for='board_title'>Title</label>
+        <input type='text' class="form-control" name='board[title]' id='board_title'>
+      </div>
 
-<form id='new-board-form' role="form">
-  <div class="form-group">
-    <label for='board_title'>Title</label>
-    <input type='text' class="form-control" name='board[title]' id='board_title'>
+      <input type='submit' value='Create Board' class="btn btn-primary">
+    </form>
   </div>
-
-  <input type='submit' value='Create Board' class="btn btn-primary">
-</form>
+</div>

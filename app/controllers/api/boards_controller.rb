@@ -15,6 +15,7 @@ module Api
     def create
       @board = current_user.boards.build(board_params)
       if @board.save
+        @board.create_standard_lists!
         render partial: "api/boards/board", locals: { board: @board }
       else
         render json: { errors: @board.errors.full_messages }, status: 422

@@ -1,21 +1,25 @@
-<div class="container">
-  <%= render "layouts/errors" %>
+<div class="container row">
+  <div class="col-md-8 col-md-offset-6">
+    <%= render "layouts/errors" %>
 
-  <h1>Sign Up</h1>
+    <h1>Sign Up</h1>
 
-  <form action="<%= users_url %>" method="POST">
-    <%= auth_token_input %>
-    <label>
-      Email<br>
-      <input id="email" type="text" name="user[email]">
-    </label>
-    <br>
-    <label>
-      Password<br>
-      <input id="password" type="password" name="user[password]">
-    </label>
-    <br>
-    <input type="submit" class="btn btn-primary" value="Sign Up">
-    <a href="<%= new_session_url %>">Back to Login</a>
-  </form>
+    <form action="<%= users_url %>" method="post" role="form">
+      <%= auth_token_input %>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+          <input type="text" id="user_email"
+            name="user[email]" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+          <input type="password" id="user_passwod"
+            name="user[password]" class="form-control">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Sign Up">
+      <a href="<%= new_session_url %>">Back to Login</a>
+    </form>
+  </div>
 </div>

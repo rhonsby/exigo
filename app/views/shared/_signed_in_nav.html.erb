@@ -1,0 +1,8 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %>
+  <b class="caret"></b></a>
+<ul class="dropdown-menu">
+  <li><a href="#">My Boards</a></li>
+  <li><a href="#/boards/new">Create Board</a></li>
+  <li class="divider"></li>
+  <li><%= link_to "Sign Out", session_url, method: :delete %></li>
+</ul>

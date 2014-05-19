@@ -1,21 +1,25 @@
-<div class="container">
-  <%= render "layouts/errors" %>
+<div class="container row">
+  <div class="col-md-8 col-md-offset-6">
+    <%= render "layouts/errors" %>
 
-  <h1>Sign In</h1>
+    <h1>Sign In</h1>
 
-  <form action="<%= session_url %>" method="post">
-    <%= auth_token_input %>
-    <label>
-      Email<br>
-      <input type="text" name="user[email]">
-    </label>
-    <br>
-    <label>
-      Password<br>
-      <input type="password" name="user[password]">
-    </label>
-    <br>
-    <input type="submit" class="btn btn-primary" value="Login">
-    <a href="<%= new_user_url %>">New to Trellino?</a>
-  </form>
+    <form action="<%= session_url %>" method="post" role="form">
+      <%= auth_token_input %>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+          <input type="text" id="user_email"
+            name="user[email]" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+          <input type="password" id="user_passwod"
+            name="user[password]" class="form-control">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Login">
+      <a href="<%= new_user_url %>">New to Trellino?</a>
+    </form>
+  </div>
 </div>
