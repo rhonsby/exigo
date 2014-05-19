@@ -3,7 +3,7 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.lists(), 'sync', this.render);
+    // this.listenTo(this.model.lists(), 'sync', this.render);
     this.listenTo(this.model.lists(), 'add', this.addList);
     this.listenTo(this.model.lists(), 'remove', this.removeList);
 
@@ -17,12 +17,41 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
     });
     this.addSubview("#board-controls", addMemberView);
 
-    debugger
     this.model.lists().each(this.addList.bind(this));
   },
 
   events: {
     "click #delete-button": "handleBoardDeletion",
+    "listChange #lists": "updateRanking"
+  },
+
+  addSortable: function () {
+    this.$("#lists").sortable({
+      start: function (event, ui) {
+        $(ui.item).addClass('dragged');
+      },
+
+      stop: function (event, ui) {
+        $(ui.item).removeClass('dragged');
+        $('#lists').trigger('listChange');
+      }
+    });  
+
+    this.$("#lists").disableSelection();
+  },
+
+  updateRanking: function () {
+    var newRanking = $('#lists').children().map(function (idx, list) {
+      console.log(list);
+      var $list = $(list);
+      return $list.data('id');
+    });
+
+    var lists = this.model.lists();
+    newRanking.each(function (i, el) { 
+      var list = lists.get(el);
+      list.save({ rank: i + 1 }, { silent: true });
+    });
   },
 
   addList: function (list) {
@@ -56,6 +85,7 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.attachSubviews();
+    this.addSortable();
 
     return this;
   }

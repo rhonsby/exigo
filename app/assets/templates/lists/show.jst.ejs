@@ -9,17 +9,3 @@
     </ul>
   </div>
 </div>
-
-<script>
-  $(function() {
-    $(".cards").sortable({
-      connectWith: ".cards",
-      start: function (event, ui) {
-        $(ui.item).addClass('dragged');
-      },
-      stop: function (event, ui) {
-        $(ui.item).removeClass('dragged');
-      }
-    }).disableSelection();
-  });
-</script>
