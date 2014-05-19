@@ -12,6 +12,45 @@
   visibility: hidden !important;
 }
 
+/* Navbar */
+
+.navbar {
+  border-radius: 0;
+}
+
+.navbar-gradient {
+  background: linear-gradient(to bottom, #27709b 0, #24688f 100%);
+  height: 0;
+}
+
+.navbar-brand {
+  color: #F8F8F8;
+}
+
+.navbar-brand:hover {
+  color: #DDD; 
+}
+
+nav .open > a {
+  background-color: none !important;
+}
+
+nav .open > a:focus {
+  background-color: none !important;
+}
+
+nav .open > a:hover {
+  background-color: none !important!;
+}
+
+.dropdown a {
+  color: #F8F8F8;
+}
+
+.dropdown-menu {
+  margin-top: 5px !important;
+}
+
 /* Boards Index Page */
 
 #my-boards > li {

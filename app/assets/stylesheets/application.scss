@@ -14,3 +14,25 @@
  */
 
 @import "bootstrap";
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #fff;
+  border-color: #428bca;
+  color: #428BCA;
+ }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #fff;
+  border-color: #428bca;
+  color: #428BCA;
+}
+
+.navbar-nav > li > a {
+  margin-top: -1px;
+  padding: 0 auto;
+}
+
+.nav .open > a {
+  background-color: none;
+}
+
