@@ -14,7 +14,8 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
   events: {
     "mouseenter": "showTrashButton",
     "mouseleave": "hideTrashButton",
-    "click .list-delete-btn": "handleListDeletion"
+    "click .list-delete-btn": "handleListDeletion",
+    "click .card-create-btn": "addCardView"
   },
 
   addCard: function (card) {
@@ -41,6 +42,14 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
 
   hideTrashButton: function () {
     this.$('.list-delete-btn').addClass('hidden');
+  },
+
+  addCardView: function (event) {
+    event.preventDefault();
+    var newCardForm = new Trellino.Views.CardForm({
+      list: this.model
+    });
+    this.$('.cards').append(newCardForm.render().$el);
   },
 
   handleListDeletion: function (event) {
