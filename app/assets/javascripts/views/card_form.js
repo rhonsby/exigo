@@ -22,15 +22,19 @@ Trellino.Views.CardForm = Backbone.View.extend({
     var card = new Trellino.Models.Card(formData);
     var list = this.list;
     var newRank = this.list.cards().length + 1;
+    var that = this;
 
     card.set('list_id', this.list.get('id'));
     card.save({ rank: newRank }, {
       success: function () {
         list.cards().add(card);
+        that.remove();
+      },
+      error: function () {
+        that.$('.form-group').addClass('has-error');
       }
     });
 
-    this.remove();
   },
 
   removeForm: function (event) {

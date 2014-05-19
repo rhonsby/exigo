@@ -17,6 +17,7 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
     });
     this.addSubview("#board-controls", addMemberView);
 
+    debugger
     this.model.lists().each(this.addList.bind(this));
   },
 
@@ -48,7 +49,6 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
     Backbone.history.navigate('', {trigger: true});
   },
 
-  // refactor show render to integrate compositeviews
   render: function () {
     var renderedContent = this.template({
       board: this.model

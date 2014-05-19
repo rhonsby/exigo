@@ -1,14 +1,24 @@
 Trellino.Views.CardsShowView = Backbone.View.extend({
   template: JST["cards/show"],
-
-  className: "card well clearfix",
+  tagName: "li",
+  className: "card ui-state-default well clearfix",
 
   events: {
-    "click .card-delete-btn": "handleCardDeletion"
+    "click .card-delete-btn": "handleCardDeletion",
+    "mouseenter": "showDeleteButton",
+    "mouseleave": "hideDeleteButton"
   },
 
   handleCardDeletion: function (event) {
     this.model.destroy();
+  },
+
+  showDeleteButton: function () {
+    this.$('.card-delete-btn').removeClass('hidden');  
+  },
+
+  hideDeleteButton: function () {
+    this.$('.card-delete-btn').addClass('hidden');                 
   },
 
   render: function () {

@@ -1,11 +1,25 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
   <div class="panel-heading">
     <%= list.escape('title') %>
     <a href="#" class='card-create-btn glyphicon glyphicon-plus'></a>
     <a href="#" class='list-delete-btn hidden glyphicon glyphicon-trash'></a>
   </div>
-  <div class="panel-body cards">
+  <div class="panel-body clearfix">
+    <ul class="cards" class="clearfix">
+    </ul>
   </div>
 </div>
 
-
+<script>
+  $(function() {
+    $(".cards").sortable({
+      connectWith: ".cards",
+      start: function (event, ui) {
+        $(ui.item).addClass('dragged');
+      },
+      stop: function (event, ui) {
+        $(ui.item).removeClass('dragged');
+      }
+    }).disableSelection();
+  });
+</script>

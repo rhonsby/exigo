@@ -13,6 +13,9 @@ Trellino.Collections.Boards = Backbone.Collection.extend({
       board.fetch({
         success: function () {
           that.add(board);
+          // cheap fix for list sorting issue
+          // view github issue for more detail 
+          Backbone.history.navigate("#/boards/" + board.get('id'), {trigger: true});
         }
       });
     }

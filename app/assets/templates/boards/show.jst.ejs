@@ -1,7 +1,9 @@
 <h1><%= board.escape('title') %></h1>
 
 <div class="row">
-  <div class="col-md-12" id="lists" class="clearfix">
+  <div class="col-md-12" class="clearfix">
+    <ul id="lists" class="clearfix">
+    </ul>
   </div>
 </div>
 
@@ -9,6 +11,17 @@
 </div>
 <button class="btn btn-danger" id="delete-button">Delete Board</button>
 
+<script>  
+    $(function() {  
+      $("#lists").sortable({
+        start: function (event, ui) {
+          $(ui.item).addClass('dragged');
+        },
 
-
-
+        stop: function (event, ui) {
+          $(ui.item).removeClass('dragged');
+        }
+      });  
+      $("#lists").disableSelection();
+    });  
+</script> 

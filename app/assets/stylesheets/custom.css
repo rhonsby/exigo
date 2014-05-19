@@ -47,10 +47,6 @@ nav .open > a:hover {
   color: #F8F8F8;
 }
 
-.dropdown-menu {
-  margin-top: 5px !important;
-}
-
 /* Boards Index Page */
 
 #my-boards > li {
@@ -58,12 +54,12 @@ nav .open > a:hover {
 }
 
 #my-boards > li a {
-  width: 300px;
-  height: 100px;
+  width: 259px;
+  height: 95px;
   background-color: #23719F;
   float: left;
-  margin: 8px;
-  padding: 10px;
+  margin: 5px;
+  padding: 12px;
   color: white;
   font-size: 18px;
   border-radius: 3px;
@@ -80,12 +76,28 @@ nav .open > a:hover {
   margin: 10px 10px;
   float: left;
   width: 250px;
+  list-style: none;
+  position: relative;
+}
+
+#lists {
+  list-style-type: none;
 }
 
 .card-create-btn {
   margin-top: 2px;
   color: white;
   float: right;
+}
+
+#card_title {
+  width: 216px;
+  margin-bottom: 7px;
+}
+
+#new-card-form input[type='submit'] {
+  margin-bottom: 8px;
+  margin-right: 5px;
 }
 
 .list-delete-btn {
@@ -99,12 +111,41 @@ nav .open > a:hover {
   margin: 8px 2px;
   padding: 10px;
   border: 1px solid #ddd;
+  list-style: none;
 }
 
 .card-delete-btn {
   float: right;
+  line-height: 1.4;
+}
+
+.cards {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+}
+
+.dragged {
+  transform: rotate(3deg);
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  box-shadow: rgba(0, 0, 0, 0.172549) 0px 3px 9px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.172549) 0px 3px 9px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.172549) 0px 3px 9px;
 }
 
 #board-controls {
   margin-top: 50px;
+}
+
+.panel {
+  border: 1px solid #27709b;
+  margin-bottom: 0;
+}
+
+.panel-default > .panel-heading {
+  background-color: #27709b;
+  border-color: #27709b;
+  color: #fff;
 }

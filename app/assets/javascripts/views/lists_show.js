@@ -1,6 +1,7 @@
 Trellino.Views.ListShowView = Backbone.CompositeView.extend({
   template: JST["lists/show"],
-  className: 'list',
+  tagName: "li",
+  className: 'list ui-state-default clearfix',
 
   initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
@@ -12,8 +13,8 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
   },
 
   events: {
-    "mouseenter": "showTrashButton",
-    "mouseleave": "hideTrashButton",
+    "mouseenter .panel-heading": "showTrashButton",
+    "mouseleave .panel-heading": "hideTrashButton",
     "click .list-delete-btn": "handleListDeletion",
     "click .card-create-btn": "addCardView"
   },
