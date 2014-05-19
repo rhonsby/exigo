@@ -1,6 +1,11 @@
-<span class='list-title'>
-  <%= list.escape('title') %>
-</span>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <%= list.escape('title') %>
+    <a href="#" class='card-create-btn glyphicon glyphicon-plus'></a>
+    <a href="#" class='list-delete-btn hidden glyphicon glyphicon-trash'></a>
+  </div>
+  <div class="panel-body cards">
+  </div>
+</div>
 
-<a href="#" class='list-delete-btn hidden glyphicon glyphicon-trash'></a>
 

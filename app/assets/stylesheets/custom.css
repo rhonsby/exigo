@@ -1,3 +1,19 @@
+/* Misc */
+
+.clearfix:after {
+  content: ' ';
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Boards Index Page */
+
 #my-boards > li {
   list-style: none;
 }
@@ -19,40 +35,37 @@
   background-color: #1E628A;
 }
 
+/* Boards Show Page */
+
 .list {
-  width: 100px;
-  height: 200px;
-  border: 1px solid black;
   margin: 10px 10px;
   float: left;
-  text-align: center;
+  width: 250px;
 }
 
-.clearfix:after {
-  content: ' ';
-  visibility: hidden;
-  display: block;
-  clear: both;
-}
-
-.card {
-  width: 95%;
-  border: 1px solid black;
-  margin: 2px auto;
-}
-
-.list-title {
-  font-size: 1.2em;
-}
-
-#delete-button {
-  display: block;
-}
-
-.hidden {
-  display: none;
+.card-create-btn {
+  margin-top: 2px;
+  color: white;
+  float: right;
 }
 
 .list-delete-btn {
-  cursor: click;
+  margin-top: 2px;
+  float: right;
+  color: white;
+  margin-right: 10px;
+}
+
+.card {
+  margin: 8px 2px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.card-delete-btn {
+  float: right;
+}
+
+#board-controls {
+  margin-top: 50px;
 }

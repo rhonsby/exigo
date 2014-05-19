@@ -2,10 +2,37 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
   template: JST["lists/show"],
   className: 'list',
 
+  initialize: function (options) {
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.cards(), 'sync', this.render);
+    this.listenTo(this.model.cards(), 'add', this.addCard);
+    this.listenTo(this.model.cards(), 'remove', this.removeCard);
+
+    this.model.cards().each(this.addCard.bind(this));
+  },
+
   events: {
     "mouseenter": "showTrashButton",
     "mouseleave": "hideTrashButton",
     "click .list-delete-btn": "handleListDeletion"
+  },
+
+  addCard: function (card) {
+    var cardShow = new Trellino.Views.CardsShowView({
+      model: card
+    });
+    this.addSubview('.cards', cardShow.render());
+  },
+
+  removeCard: function (card) {
+    var subview = _.find(
+      this.subviews(".cards"),
+      function (subview) {
+        return subview.model === card;
+      }
+    );
+
+    this.removeSubview(".cards", subview);
   },
 
   showTrashButton: function () {
@@ -18,11 +45,7 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
 
   handleListDeletion: function (event) {
     event.preventDefault();
-    var view = this;
-
-    this.model.destroy({
-      url: "api/lists/" + view.model.get('id')
-    });
+    this.model.destroy();
   },
 
   render: function () {
@@ -30,6 +53,8 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
       list: this.model
     });
     this.$el.html(renderedContent);
+    this.attachSubviews();
+
     return this;
   }
 });

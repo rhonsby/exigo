@@ -1,6 +1,10 @@
 Trellino.Models.List = Backbone.Model.extend({
   url: function () {
-    return "api/boards/" + this.get('board_id') + "/lists";
+    if (this.isNew()) {
+      return "api/boards/" + this.get('board_id') + "/lists";
+    } else {
+      return "api/lists/" + this.get('id');
+    }
   },
 
   parseCards: function () {

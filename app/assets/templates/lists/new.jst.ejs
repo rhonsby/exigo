@@ -1,9 +1,11 @@
-<form id="new-list-form">
+<form id="new-list-form" class="form-inline" role="form">
   <input type="hidden" name="list[board_id]" value="<%= board.id %>">
 
-  <label>Title
-    <input type='text' name='list[title]'>
-  </label>
+  <div class="form-group">
+    <label>Title
+      <input type='text' name='list[title]' class="form-control">
+    </label>
+  </div>
 
   <input type='submit' value='Create List' class="btn btn-success">
 </form>

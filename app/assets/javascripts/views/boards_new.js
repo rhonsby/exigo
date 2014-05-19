@@ -14,7 +14,6 @@ Trellino.Views.BoardsNewView = Backbone.View.extend({
       success: function (resp) {
         Trellino.Collections.boards.add(board);
         Backbone.history.navigate('#/boards/' + board.id, { trigger: true });
-        this.$('input').val('');
       }
     });
   },
