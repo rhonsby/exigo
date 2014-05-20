@@ -5,7 +5,7 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.cards(), 'sync', this.render);
+    //this.listenTo(this.model.cards(), 'sync', this.render);
     this.listenTo(this.model.cards(), 'add', this.addCard);
     this.listenTo(this.model.cards(), 'remove', this.removeCard);
 
@@ -17,20 +17,6 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
     "mouseleave .panel-heading": "hideTrashButton",
     "click .list-delete-btn": "handleListDeletion",
     "click .card-create-btn": "addCardView"
-  },
-
-  addSortable: function () {
-    this.$(".cards").sortable({
-      connectWith: ".cards",
-      start: function (event, ui) {
-        $(ui.item).addClass('dragged');
-      },
-      stop: function (event, ui) {
-        $(ui.item).removeClass('dragged');
-      }
-    });
-    
-    this.$('.cards').disableSelection();
   },
 
   addCard: function (card) {
@@ -76,9 +62,9 @@ Trellino.Views.ListShowView = Backbone.CompositeView.extend({
     var renderedContent = this.template({
       list: this.model
     });
+
     this.$el.html(renderedContent);
     this.$el.attr('data-id', this.model.get('id'));
-    this.addSortable();
     this.attachSubviews();
 
     return this;

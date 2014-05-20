@@ -1,7 +1,7 @@
 Trellino.Views.CardsShowView = Backbone.View.extend({
   template: JST["cards/show"],
   tagName: "li",
-  className: "card ui-state-default well clearfix",
+  className: "card ui-state-default well",
 
   events: {
     "click .card-delete-btn": "handleCardDeletion",
@@ -26,6 +26,8 @@ Trellino.Views.CardsShowView = Backbone.View.extend({
       card: this.model
     });
     this.$el.html(renderedContent);
+    this.$el.attr('data-id', this.model.get('id'));
+
     return this;
   }
 });
