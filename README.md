@@ -1,3 +1,3 @@
-## Trellino
+## Exigo
 
-Trellino, a Trello clone, is built with Ruby on Rails and Backbone.
+Exigo, a Trello clone, is built with Ruby on Rails and Backbone.
