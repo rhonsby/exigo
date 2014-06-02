@@ -32,15 +32,15 @@
 }
 
 nav .open > a {
-  background-color: none !important;
+  background-color: initial;
 }
 
 nav .open > a:focus {
-  background-color: none !important;
+  background-color: initial;
 }
 
 nav .open > a:hover {
-  background-color: none !important!;
+  background-color: initial!;
 }
 
 .dropdown a {
