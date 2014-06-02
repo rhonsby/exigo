@@ -12,6 +12,10 @@
   visibility: hidden !important;
 }
 
+#guest-btn {
+  margin-right: 10px;
+}
+
 /* Navbar */
 
 .navbar {
