@@ -28,7 +28,7 @@
 }
 
 .navbar-brand:hover {
-  color: #DDD; 
+  color: #DDD;
 }
 
 nav .open > a {
@@ -48,6 +48,11 @@ nav .open > a:hover {
 }
 
 /* Boards Index Page */
+
+#my-boards {
+  padding-left: 0;
+  margin-top: 40px;
+}
 
 #my-boards > li {
   list-style: none;
@@ -82,6 +87,8 @@ nav .open > a:hover {
 
 #lists {
   list-style-type: none;
+  padding-left: 0;
+  margin-top: 40px;
 }
 
 .card-create-btn {

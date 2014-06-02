@@ -3,7 +3,6 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    // this.listenTo(this.model.lists(), 'sync', this.render);
     this.listenTo(this.model.lists(), 'add', this.addList);
     this.listenTo(this.model.lists(), 'remove', this.removeList);
 
@@ -41,13 +40,14 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
       update: function() {
         that.updateListRanking();
       }
-    });  
+    });
 
     this.$("#lists").disableSelection();
   },
 
   addCardSortable: function () {
     var that = this;
+
     this.$(".cards").sortable({
       connectWith: ".cards",
 
@@ -71,7 +71,7 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
         _(lists).each(function (list) {
           if (list.cards().get(cardId)) {
             oldList = list;
-            card = list.cards().get(cardId); 
+            card = list.cards().get(cardId);
           }
 
           if (list.get('id') === newListId) {
@@ -89,7 +89,7 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
         });
       }
     });
-    
+
     this.$('.cards').disableSelection();
   },
 
@@ -114,10 +114,10 @@ Trellino.Views.BoardsShowView = Backbone.CompositeView.extend({
     });
 
     var lists = this.model.lists();
-    
+
     // refactor method so that it only updates the lists
     // that actually changed positions
-    newRanking.each(function (i, el) { 
+    newRanking.each(function (i, el) {
       var list = lists.get(el);
       list.save({ rank: i + 1 }, { silent: true });
     });
