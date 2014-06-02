@@ -32,15 +32,15 @@
 }
 
 nav .open > a {
-  background-color: initial;
+  background-color: inherit;
 }
 
 nav .open > a:focus {
-  background-color: initial;
+  background-color: inherit;
 }
 
 nav .open > a:hover {
-  background-color: initial!;
+  background-color: inherit;
 }
 
 .dropdown a {
